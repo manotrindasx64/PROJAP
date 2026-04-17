@@ -1,0 +1,25 @@
+LISTA DE COMANDOS
+
+1. INFORMAÇÕES GERAIS
+aln info
+
+2. EXIBIR TABELA DE ALUNOS
+aln tab
+
+3. EXIBIR LISTA DE ALUNOS(EM ORDEM DE ID)
+aln lst
+
+4. EXIBE LISTA DE ALUNOS EM ORDEM ALFABÉTICA
+aln lst ord alpha
+
+5. CRIAR ALUNO
+crate aln "nome" "turma" "numero" "email" "teste_psic" "teste_prof" "teste_matur"
+
+6. EDITAR ALUNO
+edit aln id 'id procurado' | chave: 'novo valor'
+
+7. LIMPAR TERMINAL
+clear
+
+8. SAIR
+exit
