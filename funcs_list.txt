@@ -1,25 +1,35 @@
 LISTA DE COMANDOS
 
-1. INFORMAÇÕES GERAIS
-aln info
+1  INFORMAÇÕES GERAIS: aln info
+1' DOCUMENTAÇÃO DE INFORMAÇÕES GERAIS: aln info /doc
 
-2. EXIBIR TABELA DE ALUNOS
-aln tab
 
-3. EXIBIR LISTA DE ALUNOS(EM ORDEM DE ID)
-aln lst
+2  EXIBIR TABELA DE ALUNOS: aln tab
+2' DOCUMENTAÇÃO: aln tab /doc
 
-4. EXIBE LISTA DE ALUNOS EM ORDEM ALFABÉTICA
-aln lst ord alpha
+3  EXIBIR LISTA DE ALUNOS(EM ORDEM DE ID): aln lst
+3' DOCUMENTAÇÃO: aln lst /doc
 
-5. CRIAR ALUNO
-crate aln "nome" "turma" "numero" "email" "teste_psic" "teste_prof" "teste_matur"
+4  EXIBIR LISTA DE ALUNOS EM ORDEM ALFABÉTICA: aln lst ord alpha
+4' DOCUMENTAÇÃO: aln lst ord alpha /doc 
 
-6. EDITAR ALUNO
-edit aln id 'id procurado' | chave: 'novo valor'
+5  CRIAR ALUNO: crate aln "nome" "turma" "numero" "email" "teste_psic" "teste_prof" "teste_matur"
+5' DOCUMENTAÇÃO: create aln /doc
 
-7. LIMPAR TERMINAL
-clear
+6  EDITAR ALUNO: edit aln id 'id procurado' | chave: 'novo valor'
+6' DOCUMENTAÇÃO: edit aln /doc
 
-8. SAIR
+7  REMOVER ALUNO: remove aln id "id"
+7' DOCUMENTAÇÃO: remove aln /doc
+
+8  BUSCAR ALUNO POR ID: bucar aln id = "id do aluno"
+8' DOCUMENTAÇÃO: buscar aln id /doc
+
+9  BUSCAR ALUNO POR NOME: buscar aln nome = "nome do aluno"
+9' DOCUMENTAÇÃO: buscar aln nome /doc
+
+10. LIMPAR TERMINAL: clear
+10' DOCUMENTAÇÃO: clear /doc
+
+11. SAIR
 exit

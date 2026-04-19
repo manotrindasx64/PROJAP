@@ -1,5 +1,6 @@
 from class_aln import Aluno, Alunos
 from func import init, seta, clear
+from funcs_doc import func_doc as doc
 import os
 
 # Descobre o caminho da pasta onde main.py está
@@ -35,19 +36,31 @@ while True:
     #EXIBIR INFORMAÇÕES GERAIS
     if op == 'aln info':
         alunos.aln_info()
-    
+
+    elif op == 'aln info /doc' or op == 'aln_info /doc':
+        doc(Alunos.aln_info)
+
     #EXIBIR TABELA DE ALUNOS
     elif op == 'aln tab':
         print(alunos.alns_tab().to_string(index=False))
+
+    elif op == 'aln tab /doc' or op == 'alns_tab /doc':
+        doc(Alunos.alns_tab)
     
     #EXIBIR LISTA DE ALUNOS(EM ORDEM DE ID)
     elif op == 'aln lst':
         alunos.lista_alns()
     
+    #DOCUMENTAÇÃO: 
+    elif op == 'aln lst --doc' or op == 'lista_alns /doc':
+        doc(Alunos.lista_alns)
 
     #EXIBE LISTA DE ALUNOS EM ORDEM ALFABÉTICA
     elif op == 'aln lst ord alpha':
         alunos.lista_alns_ord_alpha()
+    
+    elif op == 'aln lst ord alpha /doc' or op == 'lista_aln_ord_alpha /doc':
+        doc(Alunos.lista_aln_ord_alpha)
     
 
     #AÇÕES
@@ -63,11 +76,18 @@ while True:
 
             if not aln[nome_completo] in alunos_list:
                 alunos.save_aln(aln[nome_completo])
+            else:
+                print('ERRO::COMAND: create aln --> Aluno já existente')
 
         except Exception as erro:
             print(erro)
     
-    #EDITAR ALUNOS: edit aln id 1 | chave: valor
+    #DOCUMENTAÇÃO
+    elif op == 'create aln /doc' or op == 'seve_aln /doc':
+        doc(Alunos.save_aln)
+    
+
+    #EDITAR ALUNO: edit aln id 1 | chave: valor
     elif op[:12] == 'edit aln id ' and infs[3].isdigit() and infs[4] == '|' and len(infs) >= 7 and infs[3] in [i.i_d for i in alunos_list]:
 
         match infs[5]:
@@ -103,21 +123,41 @@ while True:
             
             case _:
                 print('erro')
+    
+    #DOCUMENTAÇÃO
+    elif op == 'edit aln /doc' or op == 'edit_aln /doc':
+        doc(Alunos.edit_aln)
 
+    
+    #REMOVER ALUNO:
+    elif op[:14] == 'remove aln id ' and len(infs) == 4 and infs[3].isdigit():
+        alunos.remove_aln(infs[3])
+    
+    #DOCUMENTAÇÃO
+    elif op == 'remove aln /doc' or op == 'remove_aln /doc':
+        doc(Alunos.remove_aln)
 
+    
     #BUSCAS
 
     #BUSCAR ALUNOS POR ID
     elif op[:16] == 'buscar aln id = ' and len(infs) == 5 and infs[4].isdigit():
         print(alunos.buscar_por_id(str(infs[4])).to_string(index=False))
     
+    #DOCUMENTAÇÃO
+    elif op == 'buscar aln id /doc' or op == 'buscar_por_id /doc':
+        doc(Alunos.buscar_por_id)
+    
     #BUSCAR ALUNOS POR NOME
     elif op[:18] == 'buscar aln nome = ' and len(infs) == 5 and infs[4].isalpha():
         print(alunos.buscar_por_nome(str(infs[4].upper())).to_string(index=False))
     
+    #DOCUMENTAÇÃO
+    elif op == 'buscar aln nome /doc' or op == 'buscar_por_nome /doc':
+        doc(Alunos.buscar_por_nome)
     
     #EXIBE LISTA DE COMANDOS
-    elif op == 'comands lst':
+    elif op == 'comands lst' or  op == 'help':
         with open(caminho_funcs_list_txt, 'r', encoding='utf-8') as f:
             conteudo = f.read()
             print(conteudo)
@@ -125,12 +165,16 @@ while True:
     #LIMPAR TERMINAL
     elif op == 'clear':
         clear()
+    
+    #DOCUMENTAÇÃO
+    elif op == 'clear /doc':
+        doc(clear)
 
     #SAIR DO PROGRAMA
     elif op == 'exit':
         exit()
     
 
-    #CASO O USUÁRIO DIGITO O COMANDO ERRADO
+    #CASO O USUÁRIO DIGITE O COMANDO ERRADO
     else:
         print('ERRO : COMANDO NÃO ENCONTRADO')
